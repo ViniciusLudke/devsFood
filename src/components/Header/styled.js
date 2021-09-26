@@ -28,4 +28,12 @@ export const SearchInput = styled.input`
     outline: 0;//n fica o quadrado ao redor do input
     padding-left: 50px;
     cursor:pointer;
+    font-size:15px;
+    transition: all ease 0.7s;//todas as animações-propriedades deste cara(SearchInput) vao ser mudadas aberta ou fechadas  ease- devagarzinho com .2(0.2)segundos
+    //para abrir devagar
+
+        //qnd estiver aberto...
+    &:focus{
+        cursor: text;
+    }
 `;
