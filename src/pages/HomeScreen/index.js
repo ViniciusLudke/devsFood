@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Container, CategoryArea, CategoryList} from './styled';
 import { useSelector } from 'react-redux';
 import api from '../../helpers/api.js';
+import ReactTooltip from 'react-tooltip'
 
 import Header from '../../components/Header/index'
 import CategoryItem from '../../components/CategoryItem/index'
@@ -27,12 +28,16 @@ export default () => {
             if(cat.error == ''){
                 setListCategories(cat.result)
             }
+            ReactTooltip.rebuild();
         }
         getCategories();
+
 
     },[])
 
     useEffect(()=>{
+
+
 
     },[activeCategory])
 
@@ -44,7 +49,7 @@ export default () => {
                 <CategoryArea>
                     Selecione uma categoria
                     <CategoryList>
-                        <CategoryItem data={{id:0, title:"Todas as categorias!", image:"/assets/food-and-restaurant.png"}} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
+                        <CategoryItem title="" data={{id:0, name:"Todas as categorias", image:"/assets/food-and-restaurant.png"}} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                         {listCategories.map((i,k) => (
                             <CategoryItem key={k} data={i} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                         ))}

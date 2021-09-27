@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import { useSelector } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 
 import HomeScreen from './pages/HomeScreen';
 import Tela2Screen from './pages/Tela2Screen';
@@ -17,9 +18,9 @@ export default () => {
 
             <Container>
                 <Menu>
-                    <MenuItem icon="/assets/store.png" page={"/"} />
-                    <MenuItem icon="/assets/order.png" page={"/orders"}/>
-                    <MenuItem icon="/assets/profile.png" page={"/profile"}/>
+                    <MenuItem title="Loja" icon="/assets/store.png" page={"/"} />
+                    <MenuItem title="Pedidos" icon="/assets/order.png" page={"/orders"}/>
+                    <MenuItem title="Meu Perfil" icon="/assets/profile.png" page={"/profile"}/>
                 </Menu>
                 <PageBody>
             {/*<h1>Oi, {name}</h1>*/}
@@ -40,6 +41,8 @@ export default () => {
             </Switch>
                 </PageBody>
                 <Cart />
+                <ReactTooltip id="tip-top" place="top" effect="solid"/>
+                <ReactTooltip id="tip-right" place="right" effect="solid"/>
             </Container>
   
                 
