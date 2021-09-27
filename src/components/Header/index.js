@@ -25,7 +25,7 @@ export default (props) =>{
             style={{width: (inputActive ? '350px': '0px')}}
             type="Text"
             value={props.search}
-            placeholder="Digite um produto"
+            placeholder="Digite um produto!"
             onChange={(e) =>props.setSearch(e.target.value)}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
