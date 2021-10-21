@@ -8,6 +8,7 @@ import ReactTooltip from 'react-tooltip'
 import Header from '../../components/Header/index'
 import CategoryItem from '../../components/CategoryItem/index'
 import ProductItem from '../../components/ProductItem/index.js'
+import Modal from '../../components/Modal/index';
 
 let timer = null;
 
@@ -22,6 +23,7 @@ export default () => {
     const [totalPages, setTotalPages] = useState(0);
     const [activePage, setActivePage]= useState(1);//armazena pg atual
     const [activeSearch, setActiveSearch] = useState('');//pesquisa
+    const [modalStatus, setModalStatus] = useState(true);
 
     const getProducts = async () =>{
         const prods = await api.getProducts(activeCategory,activePage, activeSearch);
@@ -100,6 +102,9 @@ export default () => {
                     ))}
                 </ProductPaginationArea>
             }
+            <Modal status={modalStatus} setModalStatus={setModalStatus}>
+                conteudo
+            </Modal>
         </Container>
     );
 }
